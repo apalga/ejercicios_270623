@@ -136,13 +136,13 @@ const empresas = [
 
   function verificarEmpleados(empresas, nombreEmp) {
     let empresaEncontrada = false;
-    let totalEmpleadosLocales = 0;
+    let totalEmpleados= 0;
   
     empresas.forEach((empresa) => {
       if (empresa.nombre === nombreEmp) {
         empresaEncontrada = true;
         for (let local in empresa.informacion.locales) {
-          totalEmpleadosLocales += empresa.informacion.locales[local].empleados;
+            totalEmpleados += empresa.informacion.locales[local].empleados;
         }
       }
     });
@@ -153,7 +153,7 @@ const empresas = [
 
     buscarEmpresa = empresas.find((empresa) => empresa.nombre === nombreEmp).informacion.empleados;
     
-    if (buscarEmpresa==totalEmpleadosLocales){
+    if (buscarEmpresa==totalEmpleados){
         return true
     }
 

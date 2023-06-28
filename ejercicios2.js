@@ -136,24 +136,25 @@ const empresas = [
   //* ]
   //* donde "nombre" es un string con el nombre de la empresa, y "seccionesSinLocal" es un arreglo de strings con el nombre de la sección o los nombres de las secciones que no tengan asignado un local
 
-  function SeccionesSinLocal(emp) {
-    const sinLocal = [];
+  function verificaSeccionesSinLocal(empresas) {
+    const SinLocal = [];
   
-    emp.forEach((emp) => {
-      const secciones = emp.informacion.secciones;
-      const locales = Object.keys(emp.informacion.locales);
+    empresas.forEach((empresa) => {
+      const secciones = empresa.informacion.secciones;
+      const localesEmpresa = Object.keys(empresa.informacion.locales);
   
-      const seccionSinLocalEmp = secciones.filter((seccion) => !locales.includes(seccion));
+      const seccionesSinLocalEmpresa = secciones.filter((seccion) => !localesEmpresa.includes(seccion));
   
-      if (seccionSinLocalEmp.length > 0) {
-        sinLocal.push({
-          nombre: emp.nombre,
-          sinLocal: seccionSinLocalEmp,
+      if (seccionesSinLocalEmpresa.length > 0) {
+        SinLocal.push({
+          nombre: empresa.nombre,
+          SinLocal: seccionesSinLocalEmpresa,
         });
       }
     });
   
-    return sinLocal;
+    return SinLocal;
   }
 
-  console.log(SeccionesSinLocal(empresas));
+
+  console.log(verificaSeccionesSinLocal(empresas));
